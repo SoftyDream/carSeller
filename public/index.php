@@ -10,7 +10,6 @@ if (PHP_SAPI == 'cli-server') {
     }
 }
 
-//require illuminate/database "~5.1";
 require __DIR__ . '/../vendor/autoload.php';
 
 spl_autoload_register(function () {
@@ -32,20 +31,6 @@ require __DIR__ . '/../src/middleware.php';
 
 // Register routes
 require __DIR__ . '/../src/routes.php';
-
-//$app->get('/foo', function ($Car) {
-    // Fetch all books
-    /*$books = \Car::all();
-    echo $books->toJson();
-
-    // Or create a new book
-    $book = new \Car(array(
-        'title' => 'Sahara',
-        'author' => 'Clive Cussler'
-    ));
-    $book->save();
-    echo $book->toJson();*/
-//});
 
 // Run app
 $app->run();
