@@ -25,7 +25,15 @@
 	}); */
 	$app->post('/team_name_url/', function ($request, $response, $args)
 	{
-    	return $this->renderer->render($response, 'index.phtml', $args);;
+		
+    	// Récupération des variables POST
+    	foreach ( $_POST as $post => $val )  {            
+        	$$post = $val;
+    	}
+ 
+ 
+  		 
+  	  	return $this->renderer->render($response, 'index.phtml', $_POST);;
 	});
 
 
