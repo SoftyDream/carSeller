@@ -30,7 +30,7 @@
     	foreach ( $_POST as $post => $val )  {            
         	$$post = $val;
     	}
- 
+ 	//var_dump($_POST);
  
   		 
   	  	return $this->renderer->render($response, 'index.phtml', $_POST);;

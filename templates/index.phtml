@@ -31,8 +31,10 @@
 
         <?php if (isset($name)) : ?>
             <h2>Hello <?= htmlspecialchars($name); ?>!</h2>
+	    <?php echo $_POST["name_field"]; ?>
         <?php else: ?>
             <p>Try <a href="http://www.slimframework.com">SlimFramework</a>
+	    <?php echo $_POST["name_field"]; ?>
         <?php endif; ?>
         
         
