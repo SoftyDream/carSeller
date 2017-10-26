@@ -10,15 +10,12 @@ $container['renderer'] = function ($c) {
 };
 
 // Service factory for the ORM
+// Service factory for the ORM
 $container['db'] = function ($container) {
     $capsule = new \Illuminate\Database\Capsule\Manager;
     $capsule->addConnection($container['settings']['db']);
-    $capsule::schema()->create('articles', function (\Illuminate\Database\Schema\Blueprint $table) {
-		$table->increments('id');
-		$table->string('name');
-		$table->timestamps();
-    });
-	$capsule->setAsGlobal();
+
+    $capsule->setAsGlobal();
     $capsule->bootEloquent();
 
     return $capsule;

@@ -7,9 +7,9 @@ return [
 		'db' => [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'database',
-            'username' => 'aissani',
-            'password' => 'iphone3GPS3',
+            'database' => 'carDB',
+            'username' => 'rojat',
+            'password' => 'Pc8M7wwgc',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
