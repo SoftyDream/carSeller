@@ -1,5 +1,49 @@
-<form action="/team_name_url/" method="post">
+
+<!--
+<form action="/delete/" method="get">
     <label for="team_name">Enter name: </label>
-    <input id="team_name" type="text" name="name_field" value="Default name for team.">
+    <input id="1" type="text" name="name_field" value="Default name for team.">
     <input type="submit" value="OK">
 </form>
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Insert Form</title>
+</head>
+<body>
+<center>
+	<form action="/add/" method="post">
+		<table>
+		
+			<tr>
+				<td> Propriétaire : </td>
+				<td><input type="text" name="proprio" ></td>
+			</tr>
+			<tr>
+				<td> Date de sortie : </td>
+				<td><input type="text" name="sortie"></td>
+			</tr>
+			<tr>
+				<td> Marque : </td>
+				<td><input type="text" name="marque"></td>
+			</tr>
+			<tr>
+				<td> Modele : </td>
+				<td><input type="text" name="model"></td>
+			</tr>
+			<tr>
+				<td> Version : </td>
+				<td><input type="text" name="version"></td>
+			</tr>	
+			<tr>
+				<td> Prix : </td>
+				<td><input type="text" name="prix"></td>
+			</tr>	
+		</table>
+		<input type="submit" value="OK">
+	</form>
+</center>
+</body>
+</html>

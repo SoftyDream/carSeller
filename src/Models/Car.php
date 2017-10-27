@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model 
 {
+	protected $id = ['id'];
+	protected $fillable = ['title'];
+	protected $table = 'car';
+	//protected $connection = 'connection-name';
+	public $timestamps = false;
+/*
 	private $chevaux;
 	private $longueur;
 	private $prix;
@@ -82,13 +88,7 @@ class Car extends Model
 	public function setVersion($version)
 	{
 		$this->version=$version;
-	}
-
-		
-	
-	protected $fillable = ['title'];
-	public $timestamps = false;
-	
+	}*/
 	
 } 
 

@@ -30,9 +30,19 @@
         <div></div>
 
         <?php if (isset($name)) : ?>
+        <form action="/delete/" method="get">
+					<label for="team_name">Enter name: </label>
+					<input id="team_name" type="text" name="id" value="Default name for team.">
+					<input type="submit" value="OK">
+				</form>
             <h2>Hello <?= htmlspecialchars($name); ?>!</h2>
         <?php else: ?>
-            <p>Try <a href="http://www.slimframework.com">SlimFramework</a>
+            <p>Try 
+				<form action="/delete/" method="get">
+					<label for="team_name">Enter name: </label>
+					<input id="team_name" type="text" name="id" value="Default name for team.">
+					<input type="submit" value="OK">
+				</form>
         <?php endif; ?>
     </body>
 </html>

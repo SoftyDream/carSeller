@@ -33,19 +33,19 @@
             <h2>Hello <?= htmlspecialchars($name); ?>!</h2>
 	    <?php $car = new Car;
 
-        $car->model = $_POST->model;
-
-        $car->save(); ?>
+        /*$car->model = $_POST->model;*/
+		
+       	// $car->save(); ?>
         <?php else: ?>
             <p>Try <a href="http://www.slimframework.com">SlimFramework</a>
-	    <?php $car = new Car;
-
+	    <?php 
+	    $car = new Car;
+		/*
         $car->model = $_POST->model;
-
-        $car->save(); ?> ?>
+		*/
+       // $car->save(); 
+       	?> <!--?>-->
         <?php endif; ?>
-        
-        
         
     </body>
 </html>
