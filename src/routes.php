@@ -13,25 +13,25 @@ $app->get('/[{name}]', function ($request, $response, $args)
 	// Render index view
 	$this->db;
 	$capsule = new \Illuminate\Database\Capsule\Manager;
-	$capsule::schema()->dropIfExists('cars');
+	/*$capsule::schema()->dropIfExists('cars');*/
 
-    	$capsule::schema()->create('cars', function (\Illuminate\DatabaseSchema\Blueprint $table) {
+    	/*$capsule::schema()->create('cars', function (\Illuminate\DatabaseSchema\Blueprint $table) {
         $table->increments('id');
         $table->string('title')->default('');
         //….
         $table->timestamps();
-    });
+    });*/
 
-	/*if (!$capsule::schema()->hasTable('car'))
+	if (!$capsule::schema()->hasTable('car'))
 	{
-		$capsule::schema()->create('car', function (\Illuminate\Database\Schema $car)
+		$capsule::schema()->create('car', function (\Illuminate\Database\Schema\Blueprint $car)
 		{
-	 
-			$car->increments('id');
-        		$car->string('titre')->default('');
-			$car->int('chevaux');
-			$car->int('longueur');
-			$car->int('prix');
+	 		
+			//$car->increments('id');
+        	$car->string('titre')->default('');
+			//$car->int('chevaux');
+			//$car->int('longueur');
+			//$car->int('prix');
 			$car->string('date_sortie')->default('');
 			$car->string('model')->default('');
 			$car->string('marque')->default('');
@@ -41,7 +41,7 @@ $app->get('/[{name}]', function ($request, $response, $args)
         		$car->timestamps();
 		});
 
-	}*/
+	}
 		
 	
     	return $this->renderer->render($response, 'page.phtml', $args);

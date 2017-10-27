@@ -6,13 +6,14 @@ return [
         'addContentLengthHeader' => false, // Allow the web server to send the content-length header
 		'db' => [
             'driver' => 'mysql',
-            'host' => 'localhost',
+            'host' => '127.0.0.1',
             'database' => 'carDB',
-            'username' => 'rojat',
-            'password' => 'Pc8M7wwgc',
+            'username' => 'aissani',
+            'password' => 'iphone3GPS3',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
+            'strict' => false,
         ],
         
         
