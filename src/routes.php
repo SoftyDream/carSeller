@@ -6,7 +6,6 @@
 	
 	//GET Route
 
-
 $app->get('/[{name}]', function ($request, $response, $args)
 {
 	$this->logger->info("Slim-Skeleton '/' route");
@@ -19,7 +18,6 @@ $app->get('/[{name}]', function ($request, $response, $args)
 	{
 		$capsule::schema()->create('car', function (\Illuminate\Database\Schema\Blueprint $car)
 		{
-	 		
 			$car->increments('id');
         	//$car->string('titre')->default('');
         	$car->string('proprietaire')->default('');
@@ -30,14 +28,10 @@ $app->get('/[{name}]', function ($request, $response, $args)
 			$car->string('model')->default('');
 			$car->string('marque')->default('');
 			$car->string('version')->default('');
-	
         		//….
         	$car->timestamps();
 		});
-
 	}
-		
-	
     	return $this->renderer->render($response, 'page.phtml', $args);
 });
 
@@ -47,7 +41,6 @@ $app->post('/add/', function ($request, $response, $args)
 	
 	$this->db;
 	$car= new Car;
-	
 	$car->model = $_POST['model'];
 	$car->prix = $_POST['prix'];
 	$car->version = $_POST['version'];
@@ -57,6 +50,25 @@ $app->post('/add/', function ($request, $response, $args)
 	$car->save();
 
 	return $this->renderer->render($response, 'index.phtml', $_POST);;
+});
+
+$app->get('/delete/[{id}]', function($request, $response, $args)
+{
+
+	$this->db;
+	/*$id = $request->getParam('id');*/
+	$id = $args['id'];
+	if(isset($id)){
+		
+		$car = Car::find($id);
+		$car->delete();
+		
+		/*
+		Session::flash('flash_message', 'car successfully deleted!');
+		return redirect()->route('/[{name}]');
+		*/
+		
+	} else {}
 });
 
 /*
