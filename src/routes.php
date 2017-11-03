@@ -4,9 +4,9 @@
 	use App\Http\Controllers\Controller;
 	use Illuminate\Database\Schema;
 	
-	//GET Route
+/*-----------Database creation and settings if doesn't exist-------------*/
 
-$app->get('/[{name}]', function ($request, $response, $args)
+$app->get('/car/[{name}]', function ($request, $response, $args)
 {
 	$this->logger->info("Slim-Skeleton '/' route");
 	// Render index view
@@ -32,11 +32,17 @@ $app->get('/[{name}]', function ($request, $response, $args)
         	$car->timestamps();
 		});
 	}
-    	return $this->renderer->render($response, 'page.phtml', $args);
+    	return $this->renderer->render($response, 'garage.phtml', $args);
+    	//return $this->renderer->render($response, 'Accueil.phtml', $args);
+    	//return $this->renderer->render($response, 'ajout_suppression.phtml', $args);
+    	//return $this->renderer->render($response, 'page.phtml', $args);
 });
 
+
+/*---------------------Insert-----------------------*/
+
 	
-$app->post('/add/', function ($request, $response, $args)
+$app->post('/car/add/', function ($request, $response, $args)
 {
 	
 	$this->db;
@@ -52,7 +58,12 @@ $app->post('/add/', function ($request, $response, $args)
 	return $this->renderer->render($response, 'index.phtml', $_POST);;
 });
 
-$app->get('/delete/[{id}]', function($request, $response, $args)
+
+
+/*----------------------Delete-------------------------*/
+
+
+$app->get('/car/delete/[{id}]', function($request, $response, $args)
 {
 
 	$this->db;
@@ -69,17 +80,43 @@ $app->get('/delete/[{id}]', function($request, $response, $args)
 		*/
 		
 	} else {}
+	
+	$car = Car::all()->toArray();
+        
+    /*return view('car.index', compact('car'));*/
+
 });
 
-/*
-$app->get('/delete/[{id}]', function($request, $response, $args){
-	$this->db;
-	$car=new Car;
-	$id = $args['id'];
-	$car=Car::find($id);
-	$car->delete();
-	
-	
-	return $this->renderer->render($response, 'thomas.phtml', $args);;
 
-*/
+/*---------------------Edit-----------------------*/
+
+
+$app->get('/car/edit/[{id}]', function($request, $response, $args)
+{
+	 $this->db;
+	 $id = $args['id'];
+	 $car = Car::find($id);
+     return View::make('index.phtml')->with('car', $car);
+});
+
+
+/*---------------------ShowAll-----------------------*/
+
+$app->get('/car/showAll/', function($request, $response, $args)
+{
+	$this->db;
+	$car = Car::all();
+    return View::make('index.phtml')->with('car', $car);
+});
+
+/*---------------------ShowOne-----------------------*/
+
+$app->get('/car/showOne/[{id}]', function($request, $response, $args)
+{
+	$this->db;
+	$id = $args['id'];
+	$car = Car::find($id);
+	return View::make('index.pthml')->with('car', $car);
+});
+
+
