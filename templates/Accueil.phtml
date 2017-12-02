@@ -3,7 +3,10 @@
 
   <head>
     <meta charset="utf-8">
-    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" >-->
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/car/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/car/main.css" />
+	 
     <style type="text/css">
       body { background-color:#DDD; }
       [class*="col"] { margin-bottom: 20px; }
@@ -17,6 +20,7 @@
             width: 100px;
         }	
     </style>
+    
   </head>
 
   <body>
@@ -26,14 +30,14 @@
 	<nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <ul class="nav navbar-nav">
-            <li class="active"> <a href="#">Accueil</a> </li>
-            <li> <a href="#">Ajout/Suppression de voiture</a> </li>
-            <li> <a href="#">Garage</a> </li>
+            <li class="active"> <a href="">Accueil</a> </li>
+            <li class="dropdown" > <a href="../add_delete/">Ajout / Suppression de voiture</a> </li>
+            <li class="dropdown" > <a href="../garage/">Garage</a> </li>
             
           </ul>
           
         </div>
-      </nav>
+  </nav>
 
 
       <header class="page-header">
@@ -142,5 +146,10 @@
       </div>
 	</div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" ></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" ></script>
   </body>
+  
 </html>
+  
