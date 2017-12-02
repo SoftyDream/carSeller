@@ -26,9 +26,9 @@ $app->get('/car/[{name}]', function ($request, $response, $args)
 			//$car->int('longueur');
 			$car->string('prix')->default('');
 			$car->string('date_sortie')->default('');
-			$car->string('model')->default('');
+			//$car->string('model')->default('');
 			$car->string('marque')->default('');
-			$car->string('version')->default('');
+			//$car->string('version')->default('');
         		//….
         	$car->timestamps();
 		});
@@ -75,17 +75,17 @@ $app->post('/car/add_delete/add/', function ($request, $response, $args)
 	$this->db;
 
 	$car= new Car;
-	$car->model = $_POST['model'];
+	//$car->model = $_POST['model'];
 	$car->prix = $_POST['prix'];
 	//$car->version = $_POST['version'];
-	//$car->marque = $_POST['marque'];
+	$car->marque = $_POST['marque'];
 	$car->proprietaire = $_POST['proprio'];
 	$car->date_sortie = $_POST['sortie'];
 	$car->save();
 	
 	//return $this->renderer->render($response, 'ajout_suppression.phtml', $_POST);
 	
-
+	return $response->withRedirect('/car/add_delete/');
 
 
 	//return $this->renderer->render($response, 'ajout_suppression.phtml', $_POST);
