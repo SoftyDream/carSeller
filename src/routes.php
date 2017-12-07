@@ -87,7 +87,7 @@ $app->post('/car/add_delete/add/', function ($request, $response, $args)
 	
 	//return $this->renderer->render($response, 'ajout_suppression.phtml', $_POST);
 	
-	return $response->withRedirect('/car/add_delete/');
+	return $response->withRedirect('/car/garage/');
 
 
 	//return $this->renderer->render($response, 'ajout_suppression.phtml', $_POST);
@@ -120,8 +120,8 @@ $app->get('/car/add_delete/delete/[{id}]', function($request, $response, $args)
 	//return $response->withRedirect('/car/add_delete/');
 	
 	//return $this->renderer->render($response, 'showAll.phtml', $_POST);
-	return $this->renderer->render($response, 'ajout_suppression.phtml', $_POST);
-
+	//return $this->renderer->render($response, 'ajout_suppression.phtml', $_POST);
+	return $response->withRedirect('/car/garage/');
 });
 
 /************************************************************/
@@ -147,25 +147,7 @@ $app->get('/car/add_delete/', function($request, $response, $args)
 
 });
 
-$app->get('/car/editt/', function($request, $response, $args)
-{
 
-	/*$this->db;
-	//$id = $request->getParam('id');
-	$id = $args['id'];
-	if(isset($id)){
-		
-		$car = Car::find($id);
-		$car->delete();
-		
-	} else {}
-	
-	$car = Car::all()->toArray();*/ 
-	
-
-	
-
-});
 
 
 /*---------------------Edit-----------------------*/
@@ -181,29 +163,30 @@ $app->get('/car/edit/[{id}]', function($request, $response, $args)
      return $this->renderer->render($response, 'edit.phtml', ["car"=>$car]);
 });
 
+/******************Save/Edit*********************/
 
-/*---------------------ShowAll-----------------------*/
-
-$app->get('/car/showAll/', function($request, $response, $args)
-{	
-	
-	$this->db;
-	
-	$Cars = Car::all();
-	return $this->renderer->render($response, 'showAll.phtml', ["Cars"=>$Cars]);
-
-});
-
-/*---------------------ShowOne-----------------------*/
-
-/*$app->get('/car/showOne/[{id}]', function($request, $response, $args)
+$app->post('/car/save/[{id}]', function($request, $response, $args)
 {
 	$this->db;
-	$id = $args['id'];
-	$car = Car::find($id);
-	return View::make('index.pthml')->with('car', $car);
-});*/
+ 	$id = $args['id'];
+	 $car = Car::find($id);
+	
+	//$car->model = $_POST['model'];
+	$car->prix = $_POST['prix'];
+	//$car->version = $_POST['version'];
+	$car->marque = $_POST['marque'];
+	$car->proprietaire = $_POST['proprio'];
+	$car->date_sortie = $_POST['sortie'];
+	$car->save();
+     
+    // return $this->renderer->render($response, 'garage.phtml', $_POST);
+    return $response->withRedirect('/car/garage/');
+});
 
+
+
+
+/*---------------------ShowAll-----------------------*/
 
 /*--------------------Garage route------------------------*/
 
