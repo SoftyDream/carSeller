@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" >
+    
+<style type="text/css">-->
+	<link href="/bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body { background-color:#DDD; }
+      [class*="col"] { margin-bottom: 20px; }
+      img { width: 100%; }
+      .well {
+        background-color:#CCC;
+        padding: 20px;
+      }
+      .inline-form input {
+            display: inline-block;
+            width: 100px;
+        }	
+    </style>
+  </head>
+  <body>
+<div class="container">
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li > <a href="../accueil/">Accueil</a> </li>
+            <li class="active"> <a href="">Ajout de voiture</a> </li>
+            <li> <a href="../garage/">Garage</a> </li>
+            
+          </ul>
+          
+        </div>
+      </nav>
+	<header class="page-header">
+        <h1>Formulaire d'ajout </h1>
+      </header>
+
+<!-- FORMULAIRE AJOUT SUPPRESSIONS-->
+
+<!--******************************-->
+
+
+<form action="/car/add_delete/add/" method="post" class="form-horizontal col-lg-6">
+  <div class="form-group">
+    
+  </div>
+  
+  <div class="row">
+    <div class="form-group">
+
+
+	
+	<?php 
+
+	 ?>
+	<label for="textarea" class="col-lg-2 control-label">Propriétaire</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" placeholder= '<?php echo $car->proprietaire ?>'  id="textarea" name="proprio">
+      </div>
+
+
+      <label for="textarea" class="col-lg-2 control-label">Prix </label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="textarea" name="prix">      </div>
+
+
+	<div>
+	<label for="textarea" class="col-lg-2 control-label">Date de sortie </label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="textarea" name="sortie">
+	</div>
+
+
+	<label for="select" class="col-lg-2 control-label">Marque </label>
+      <div class="col-lg-10">
+        <select id="select" name="marque" class="form-control" >
+          <option>Ferrari</option>
+          <option>Lamborghini</option>
+          <option>Alfa Romeo</option>
+	         <option>Aston Martin</option>
+	         <option>Porsche</option>
+	         <option>Audi</option>
+	         <option>Mercedes</option>
+	         <option>Buggati</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="form-group">
+    <button class="btn btn-primary pull-right" method="post" id="add" type="submit" href="../add_delete/" >
+      <span class="glyphicon glyphicon-ok-sign"></span> Modifier</button>
+
+    <button class="btn btn-primary pull-right" method="post" id="delete" type="submit"  href="/delete/">
+      <span class="glyphicon glyphicon-ok-sign"></span> Supprimer</button>
+  </div>
+
+</form>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" ></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" ></script>
+</body>
+</html>

@@ -7,6 +7,8 @@
 	
 /*--------Database creation and settings if doesn't exist---------*/
 
+
+
 $app->get('/car/[{name}]', function ($request, $response, $args)
 {
 	$this->logger->info("Slim-Skeleton '/' route");
@@ -105,17 +107,24 @@ $app->get('/car/add_delete/delete/[{id}]', function($request, $response, $args)
 	$this->db;
 	//$id = $request->getParam('id');
 	$id = $args['id'];
-	if(isset($id)){
-		
+	/*if(isset($id)){
+		*/
 		$car = Car::find($id);
 		$car->delete();
 		
-	} else {}
+	/*} else {}*/
+	
 	
 	$car = Car::all()->toArray();
+	
+	//return $response->withRedirect('/car/add_delete/');
+	
+	//return $this->renderer->render($response, 'showAll.phtml', $_POST);
 	return $this->renderer->render($response, 'ajout_suppression.phtml', $_POST);
 
 });
+
+/************************************************************/
 
 
 $app->get('/car/add_delete/', function($request, $response, $args)
@@ -132,7 +141,29 @@ $app->get('/car/add_delete/', function($request, $response, $args)
 	} else {}
 	
 	$car = Car::all()->toArray();*/ 
+	
+
 	return $this->renderer->render($response, 'ajout_suppression.phtml', $_POST);
+
+});
+
+$app->get('/car/editt/', function($request, $response, $args)
+{
+
+	/*$this->db;
+	//$id = $request->getParam('id');
+	$id = $args['id'];
+	if(isset($id)){
+		
+		$car = Car::find($id);
+		$car->delete();
+		
+	} else {}
+	
+	$car = Car::all()->toArray();*/ 
+	
+
+	
 
 });
 
@@ -145,40 +176,43 @@ $app->get('/car/edit/[{id}]', function($request, $response, $args)
 	 $this->db;
 	 $id = $args['id'];
 	 $car = Car::find($id);
-     return View::make('index.phtml')->with('car', $car);
+     //return View::make('index.phtml')->with('car', $car);
+     
+     return $this->renderer->render($response, 'edit.phtml', ["car"=>$car]);
 });
 
 
 /*---------------------ShowAll-----------------------*/
 
 $app->get('/car/showAll/', function($request, $response, $args)
-{
+{	
+	
 	$this->db;
-	$car = Car::orderBy('id')->get();
-
-	//Model::all()->take(10)->get();
-	//$car = Car::all()->get();
-	//Model::all()->take(10)->get();
-    //return View::make('index.phtml')->with('car', $car);
+	
+	$Cars = Car::all();
+	return $this->renderer->render($response, 'showAll.phtml', ["Cars"=>$Cars]);
 
 });
 
 /*---------------------ShowOne-----------------------*/
 
-$app->get('/car/showOne/[{id}]', function($request, $response, $args)
+/*$app->get('/car/showOne/[{id}]', function($request, $response, $args)
 {
 	$this->db;
 	$id = $args['id'];
 	$car = Car::find($id);
 	return View::make('index.pthml')->with('car', $car);
-});
+});*/
 
 
 /*--------------------Garage route------------------------*/
 
 $app->get('/car/garage/', function($request, $response, $args){
 
-	return $this->renderer->render($response, 'garage.phtml', $_POST);
+	$this->db;
+	$Cars = Car::all();
+	//return $this->renderer->render($response, 'showAll.phtml', ["Cars"=>$Cars]);
+	return $this->renderer->render($response, 'garage.phtml', ["Cars"=>$Cars]);
 });
 
 /*------------------- Accueil route------------------------*/
